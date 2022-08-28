@@ -2,13 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import GameBoard  from './components/GameBoard/GameBoard'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Routes>
           <Route path="/game" element={<GameBoard />}>
           </Route>
@@ -19,10 +19,9 @@ function App() {
               <Link to={`/game`}>Start!</Link>
             </header>
           }>
-            
           </Route>
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   );
 }
