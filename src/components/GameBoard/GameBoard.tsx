@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import './GameBoard.scss';
+import SequenceCode from '../SequenceCode/SequenceCode';
 
 interface GameBoardProps {}
 
-const GameBoard: FC<GameBoardProps> = () => (
-  <div className="GameBoard">
-    GameBoard Component
-  </div>
-);
+function GameBoard() {
+  return (<div className="GameBoard">
+    <SequenceCode />
+  </div>)
+};
 
 export default GameBoard;
