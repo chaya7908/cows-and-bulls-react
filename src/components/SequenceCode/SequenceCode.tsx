@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
 import './SequenceCode.scss';
 import { Colors } from '../../constants/colors.enum';
-import { TRIES_NUMBER, SEQUENCE_LENGTH } from '../../constants/constants';
-import { randomEnum } from '../../utils/randomEnum';
+import { SEQUENCE_LENGTH } from '../../constants/constants';
+import { randomEnum } from '../../utils/enumUtils';
 import SequenceItem from '../SequenceItem/SequenceItem';
 
 interface SequenceCodeProps {
