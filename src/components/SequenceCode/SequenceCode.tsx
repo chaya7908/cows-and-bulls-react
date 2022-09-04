@@ -5,9 +5,10 @@ import { randomEnum } from '../../utils/enumUtils';
 import SequenceItem from '../SequenceItem/SequenceItem';
 
 interface SequenceCodeProps {
+  codeGenerated: (code: Colors[]) => void;
 }
 
-function SequenceCode() {
+function SequenceCode({ codeGenerated }: SequenceCodeProps) {
   const sequence: Colors[] = [];
 
   function random() {
@@ -18,6 +19,8 @@ function SequenceCode() {
         sequence.push(val);
       }
     }
+
+    codeGenerated(sequence);
   }
 
   random();

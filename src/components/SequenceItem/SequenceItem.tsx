@@ -7,15 +7,15 @@ interface SequenceItemProps {
   color?: Colors;
   visibility?: boolean;
   draggable?: boolean;
-  droppable?: boolean
+  onChange?: (color: Colors) => void
 }
 
-function SequenceItem({ color, visibility, draggable = false, droppable = false }: SequenceItemProps) {
+function SequenceItem({ color, visibility, draggable = false, onChange }: SequenceItemProps) {
   const [state, setState] = useState({color: color});
 
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [{ isDragging }, drag, dragPreview] = useDrag(() => ({
     type: "A",
-    item: () => ({color}),
+    item: () => ({ color }),
     collect: (monitor: any) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -30,7 +30,7 @@ function SequenceItem({ color, visibility, draggable = false, droppable = false 
     accept: "A",
     drop: (data: {color: Colors}) => {
       setState((prev: SequenceItemProps) => ({ ...prev, color: data.color }));
-
+      onChange?.(data.color);
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -48,7 +48,10 @@ function SequenceItem({ color, visibility, draggable = false, droppable = false 
   return (
     <div className="SequenceItem">
       {state.color ? (
-        <div className={`color-${state.color} visibility-${visibility}`} {...itemProps} >
+        <div
+          className={`color-${state.color} visibility-${visibility}`}
+          {...itemProps}
+        >
           <img
             src={`${process.env.PUBLIC_URL}/pearls/${
               visibility === false ? "unknown" : state.color
@@ -56,7 +59,7 @@ function SequenceItem({ color, visibility, draggable = false, droppable = false 
           />
         </div>
       ) : (
-        <div className='empty' ref={drop}></div>
+        <div className="empty" ref={drop}></div>
       )}
     </div>
   );
