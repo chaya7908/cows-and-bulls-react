@@ -10,7 +10,7 @@ function OptionsPalette() {
 
   const options: Colors[] = [];
   function init() {
-    for (let i = 0; i < SEQUENCE_LENGTH; i++) {
+    for (let i = 0; i < SEQUENCE_LENGTH + 2; i++) {
       options.push(getEnumByIndex(Colors, i));
     }
   }
