@@ -1,1 +1,6 @@
-.OptionsPalette {}
+.OptionsPalette {
+  display: flex;
+  padding: 12px;
+  border: 1px solid;
+  justify-content: space-around;
+}

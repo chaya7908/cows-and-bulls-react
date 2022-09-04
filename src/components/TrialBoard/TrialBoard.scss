@@ -1,1 +1,7 @@
-.TrialBoard {}
+.TrialBoard {
+  margin: 5px 0;
+  display: flex;
+  padding: 12px;
+  border: 1px solid;
+  justify-content: space-around;
+}

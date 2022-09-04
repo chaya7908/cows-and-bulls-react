@@ -12,16 +12,15 @@ function OptionsPalette() {
   function init() {
     for (let i = 0; i < SEQUENCE_LENGTH; i++) {
       options.push(getEnumByIndex(Colors, i));
-      
     }
   }
 
   init();
   
   return (
-    <div className="SequenceCode">
+    <div className="OptionsPalette">
       {options.map((color, i) => (
-        <SequenceItem key={i} color={color} visibility={true}></SequenceItem>
+        <SequenceItem key={i} color={color} visibility={true} draggable={true}></SequenceItem>
       ))}
     </div>
   );
