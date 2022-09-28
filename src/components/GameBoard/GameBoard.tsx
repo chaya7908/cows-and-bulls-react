@@ -18,6 +18,8 @@ function GameBoard(props: any) {
   }
 
   function checkSequance(sequence: Colors[]): CheckType[] {
+    console.log('sequenceCode', sequenceCode)
+    console.log('sequence', sequence)
     const result: CheckType[] = [];
 
     sequence.forEach((color, index) => {
